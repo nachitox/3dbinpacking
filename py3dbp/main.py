@@ -189,19 +189,13 @@ class Packer:
             bin.unfitted_items.append(item)
 
     def pack(
-        self,
-        bigger_first=False,
-        distribute_items=False,
-        number_of_decimals=DEFAULT_NUMBER_OF_DECIMALS,
+        self, distribute_items=False, number_of_decimals=DEFAULT_NUMBER_OF_DECIMALS
     ):
         for bin in self.bins:
             bin.format_numbers(number_of_decimals)
 
         for item in self.items:
             item.format_numbers(number_of_decimals)
-
-        self.bins.sort(key=lambda bin: bin.get_volume(), reverse=bigger_first)
-        self.items.sort(key=lambda item: item.get_volume(), reverse=bigger_first)
 
         for bin in self.bins:
             for item in self.items:
