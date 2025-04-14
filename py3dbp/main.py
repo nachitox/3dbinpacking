@@ -144,7 +144,7 @@ class Packer:
     def __init__(self):
         self.bins = []
         self.items = []
-        self.unfit_items = []
+        self.unfitted_items = []
         self.total_items = 0
 
     def add_bin(self, bin):
